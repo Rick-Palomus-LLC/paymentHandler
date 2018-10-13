@@ -17,11 +17,14 @@ func HandleRequest(ctx context.Context, payment types.PaymentEvent) (types.Payme
 		response.Message = err.Error()
 		response.Ok = false
 	} else {
+		// Database insert
+		// Call twilio
+
 		response.Ok = true
 		response.Message = charge.Status
 	}
 
-	return response, err
+	return response, nil
 }
 
 func main() {
