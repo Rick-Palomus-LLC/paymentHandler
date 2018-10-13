@@ -1,18 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"context"
+	"fmt"
+
+	"github.com/Rick-Palomus-LLC/library/types"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type PaymentEvent struct {
-	Name string `json:"name"`
-	Number string `json:"number"`
-	Token string `json:"token"`
-}
-
-func HandleRequest(ctx context.Context, payment PaymentEvent) (string, error) {
+func HandleRequest(ctx context.Context, payment types.PaymentEvent) (string, error) {
 	return fmt.Sprintf("%s", payment.Name), nil
 }
 
