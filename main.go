@@ -2,14 +2,17 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/Rick-Palomus-LLC/library/types"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func HandleRequest(ctx context.Context, payment types.PaymentEvent) (string, error) {
-	return fmt.Sprintf("%s", payment.Name), nil
+func HandleRequest(ctx context.Context, payment types.PaymentEvent) (types.PaymentResponse, error) {
+
+	return types.PaymentResponse{
+		Message: "ok",
+		Ok:      true,
+	}, nil
 }
 
 func main() {
